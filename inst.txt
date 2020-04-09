@@ -1,0 +1,12 @@
+Terminar de validar os campos:
+
+- Data de Nascimento
+- Mensagem
+
+Acrescentar no Formulário os campos:
+
+- Endereço
+- CPF (###.###.###-##)
+- CEP ( apenas números e no formato: ##.###-###  | #####-###)
+- nome usuário (login) - letra e números apenas
+- senha  e Confirmar senha (verificar se as senhas são iguais e se possuem no mínimo 6 caracteres.
