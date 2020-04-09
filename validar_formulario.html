@@ -54,55 +54,53 @@
 
 <body>
     <div>
-        <form action="/action_page.php" method="post" id="form">
+        <!-- <form action="/action_page.php" method="post" id="form"> -->
+        <form
+            action="/action_page.php"
+            method="post"
+            id="form"
+            onsubmit=" return validationForm()"
+        >
             <h3 style="text-align: center;">Dados Pessoais</h3>
             <div>
-                <label for="nome">Nome:</label><br>
-                <input type="text" id="nome" placeholder="Nome" />
-                <span class='msg-erro msg-nome'> </span>
+                <label for="name">Nome:</label><br>
+                <input type="text" id="name" placeholder="Nome" />
+                <span class='msg-erro msg-name'> </span>
             </div>
             <div>
-                <label for="sobrenome">Sobrenome:</label><br>
-                <input type="text" id="sobrenome" placeholder="Sobrenome" />
-                <span class='msg-erro msg-sobrenome'> </span>
-
+                <label for="lastname">Sobrenome:</label><br>
+                <input type="text" id="lastname" placeholder="Sobrenome" />
+                <span class="msg-erro msg-lastname"> </span>
             </div>
             <div>
                 <p>Sexo:</p>
-                <input type="radio" name="sexo" id="sexo" value="0" style="width: 50px;" />
+                <input type="radio" name="gender" id="gender" value="0" style="width: 50px;" />
                 <label for="feminino">Feminino</label>
-                <input type="radio" name="sexo" id="sexo" value="1" style="width: 50px; " />
+                <input type="radio" name="gender" id="gender" value="1" style="width: 50px; " />
                 <label for=" masculino">Masculino</label>
-                <input type="radio" name="sexo" id="sexo" value="2" style="width: 50px; " />
+                <input type="radio" name="gender" id="gender" value="2" style="width: 50px; " />
                 <label for=" outro">Outro</label>
-
-                <span class='msg-erro msg-sexo'> </span>
-
+                <span class='msg-erro msg-gender'> </span>
             </div>
-
             <div>
                 <label for="email">E-mail:</label><br>
                 <input type="email" id="email" placeholder="E-mail" />
                 <span class='msg-erro msg-email'> </span>
-
             </div>
             <div>
-                <label for="tel">Telefone:</label><br>
-                <input type="tel" id="tel" placeholder="Telefone" />
-                <span class='msg-erro msg-tel'> </span>
-
+                <label for="telephone">Telefone:</label><br>
+                <input type="tel" id="telephone" placeholder="Telefone" />
+                <span class='msg-erro msg-telephone'> </span>
             </div>
             <div>
-                <label for="date">Data de Nascimento:</label><br>
-                <input type="date" id="date" />
-                <span class='msg-erro msg-date'> </span>
-
+                <label for="birthofday">Data de Nascimento:</label><br>
+                <input type="date" id="birthofday" />
+                <span class='msg-erro msg-birthofday'> </span>
             </div>
             <div>
-                <label for="msg">Mensagem:</label><br>
-                <textarea id="msg"></textarea>
-                <span class='msg-erro msg-msg'> </span>
-
+                <label for="message">Mensagem:</label><br>
+                <textarea id="message"></textarea>
+                <span class='msg-erro msg-message'> </span>
             </div>
             <div>
                 <input type="submit" value="Submit" />
@@ -111,100 +109,131 @@
     </div>
 
     <script>
-        var form = document.getElementById("form");
+        // var contErro = 0;
 
-        if (form.addEventListener) {
-            form.addEventListener("submit", validaCadastro);
-        } else if (form.attachEvent) {
-            form.attachEvent("onsubmit", validaCadastro)
+        function validationName (name) {
+            name_box = document.querySelector('.msg-name');
+            if (name.value == "") {
+                name_box.innerHTML = "Favor preencha o nome";
+                name_box.style.display = 'block';
+                // contErro += 1;
+            } else if (name.value.length < 3) {
+                name_box.innerHTML = "Favor preencha o nome com no mínimo 3 caracteres";
+                name_box.style.display = 'block';
+                // contErro += 1;
+            } else {
+                name_box.style.display = 'none';
+            }
         }
 
-
-        function validaCadastro(e) {
-            var nome = document.getElementById('nome');
-            var sobrenome = document.getElementById('sobrenome');
-            var sexo = document.getElementsByName('sexo');
-            var email = document.getElementById('email');
-            var tel = document.getElementById('tel');
-            var data_n = document.getElementById('date');
-            var msg = document.getElementById('msg');
-
-            var exp_email = /^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/i;
-            var exp_tel = /^[0-9]{2}?[0-9]{4,5}[0-9]{4}|[0-9]{4,5}-[0-9]{4}$/;
-
-
-            var contErro = 0;
-
-            caixa_nome = document.querySelector('.msg-nome');
-            if (nome.value == "") {
-                caixa_nome.innerHTML = "Favor preencha o nome";
-                caixa_nome.style.display = 'block';
-                contErro += 1;
-            } else if (nome.value.length < 3) {
-                caixa_nome.innerHTML = "Favor preencha o nome com no mínimo 3 caracteres";
-                caixa_nome.style.display = 'block';
-                contErro += 1;
+        function validationLastName (lastName) {
+            lastname_box = document.querySelector('.msg-lastname');
+            if (lastName.value == "") {
+                lastname_box.innerHTML = "Favor preencha o sobrenome";
+                lastname_box.style.display = 'block';
+                // contErro += 1;
+            } else if (lastName.value.length < 5) {
+                lastname_box.innerHTML = "Favor preencha o sobrenome com no mínimo 5 caracteres";
+                lastname_box.style.display = 'block';
+                // contErro += 1;
             } else {
-                caixa_nome.style.display = 'none';
+                lastname_box.style.display = 'none';
             }
+        }
 
-            caixa_sobrenome = document.querySelector('.msg-sobrenome');
-            if (sobrenome.value == "") {
-                caixa_sobrenome.innerHTML = "Favor preencha o sobrenome";
-                caixa_sobrenome.style.display = 'block';
-                contErro += 1;
-            } else if (sobrenome.value.length < 5) {
-                caixa_sobrenome.innerHTML = "Favor preencha o sobrenome com no mínimo 5 caracteres";
-                caixa_sobrenome.style.display = 'block';
-                contErro += 1;
-            } else {
-                caixa_sobrenome.style.display = 'none';
-            }
-        
-            caixa_sexo = document.querySelector('.msg-sexo');
-            if (sexo[0].checked == false && sexo[1].checked == false && sexo[2].checked == false ) {
-                caixa_sexo.innerHTML = "Favor selecionar o sexo";
-                caixa_sexo.style.display = 'block';
-                contErro += 1;
+        function validationGender (gender) {
+            gender_box = document.querySelector('.msg-gender');
+            if (gender[0].checked == false && gender[1].checked == false && gender[2].checked == false ) {
+                gender_box.innerHTML = "Favor selecionar o sexo";
+                gender_box.style.display = 'block';
+                // contErro += 1;
             }else {
-                caixa_sexo.style.display = 'none';
+                gender_box.style.display = 'none';
             }
+        }
 
-            caixa_email = document.querySelector('.msg-email');
+        function validationEmail (email) {
+            var exp_email = /^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/i;
+
+            email_box = document.querySelector('.msg-email');
             if (email.value == ""){
-                caixa_email.innerHTML = "Favor preencher o e-mail";
-                caixa_email.style.display = 'block';
-                contErro += 1;
+                email_box.innerHTML = "Favor preencher o e-mail";
+                email_box.style.display = 'block';
+                // contErro += 1;
 
             } else if(exp_email.test(email.value)){
-                caixa_email.style.display = 'none';
+                email_box.style.display = 'none';
                 
             } else {
-                caixa_email.innerHTML = "Favor preencher com e-mail valido";
-                caixa_email.style.display = 'block';
-                contErro += 1;
+                email_box.innerHTML = "Favor preencher com e-mail valido";
+                email_box.style.display = 'block';
+                // contErro += 1;
             }
+        }
 
-            caixa_tel = document.querySelector('.msg-tel');
-            if (email.value == ""){
-                caixa_tel.innerHTML = "Favor preencher o campo telefone";
-                caixa_tel.style.display = 'block';
-                contErro += 1;
+        function validationTelephone (telephone) {
+            var exp_telephone = /^[0-9]{2}?[0-9]{4,5}[0-9]{4}|[0-9]{4,5}-[0-9]{4}$/;
 
-            } else if(exp_tel.test(tel.value)){
-                caixa_tel.style.display = 'none';
+            telephone_box = document.querySelector('.msg-tel');
+            if (telephone.value == ""){
+                telephone_box.innerHTML = "Favor preencher o campo telefone";
+                telephone_box.style.display = 'block';
+                // contErro += 1;
+
+            } else if(exp_tel.test(telephone.value)){
+                telephone_box.style.display = 'none';
                 
             } else {
-                caixa_tel.innerHTML = "Favor preencher com e-mail valido";
-                caixa_tel.style.display = 'block';
-                contErro += 1;
+                telephone_box.innerHTML = "Favor preencher com e-mail valido";
+                telephone_box.style.display = 'block';
+                // contErro += 1;
             }
+        }
 
-            if (contErro > 0) {
-                e.preventDefault();
-            }
+        function validationBirthOfDay (birthOfDay) {
+            
+        }
 
+        function validationMessage (message) {
 
+        }
+
+        function validationAddress (address) {
+
+        }
+
+        function validationCpf (cpf) {
+
+        }
+
+        function validationCep (cep) {
+
+        }
+
+        function validationUserName (userName) {
+
+        }
+
+        function validationPassword (password, rePassword) {
+
+        }
+
+        function validationForm() {
+
+            validationName(document.getElementById('name'));
+            validationLastName(document.getElementById('lastname'));
+            validationGender(document.getElementsByName('gender'));
+            validationEmail(document.getElementById('email'));
+            // validationTelephone(document.getElementById('telephone'));
+            validationBirthOfDay(document.getElementById('birthofday'));
+            // validationMessage(document.getElementById('message'));
+            // validationAddress(document.getElementById('address'));
+            // validationCpf(document.getElementById('cpf'));
+            // validationCep(document.getElementById('cep'));
+            // validationUserName(document.getElementById('username'));
+            // validationPassword(document.getElementById('password'), document.getElementById('repassword'))
+
+            return false;
         }
     </script>
 
