@@ -2,240 +2,98 @@
 <html lang="pt-br">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Validando dados</title>
-
-    <style>
-        body {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        div {
-            border-radius: 5px;
-            background-color: #f2f2f2;
-            padding: 5px;
-        }
-
-        input {
-            width: 100%;
-            padding: 12px 20px;
-            margin: 3px 0;
-            display: inline-block;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-            box-sizing: border-box;
-        }
-
-        textarea {
-            width: 100%;
-            margin: 3px 0;
-            display: inline-block;
-            border-radius: 4px;
-        }
-
-        input[type=submit] {
-            background-color: black;
-            color: white;
-            padding: 14px 20px;
-            margin: 8px 0;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-        }
-
-        .msg-erro {
-            color: red;
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="author" content="Thalles Sobral">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./style.css">
+  <title>Validando dados</title>
 </head>
 
 <body>
-    <div>
-        <!-- <form action="/action_page.php" method="post" id="form"> -->
-        <form
-            action="/action_page.php"
-            method="post"
-            id="form"
-            onsubmit=" return validationForm()"
-        >
-            <h3 style="text-align: center;">Dados Pessoais</h3>
-            <div>
-                <label for="name">Nome:</label><br>
-                <input type="text" id="name" placeholder="Nome" />
-                <span class='msg-erro msg-name'> </span>
-            </div>
-            <div>
-                <label for="lastname">Sobrenome:</label><br>
-                <input type="text" id="lastname" placeholder="Sobrenome" />
-                <span class="msg-erro msg-lastname"> </span>
-            </div>
-            <div>
-                <p>Sexo:</p>
-                <input type="radio" name="gender" id="gender" value="0" style="width: 50px;" />
-                <label for="feminino">Feminino</label>
-                <input type="radio" name="gender" id="gender" value="1" style="width: 50px; " />
-                <label for=" masculino">Masculino</label>
-                <input type="radio" name="gender" id="gender" value="2" style="width: 50px; " />
-                <label for=" outro">Outro</label>
-                <span class='msg-erro msg-gender'> </span>
-            </div>
-            <div>
-                <label for="email">E-mail:</label><br>
-                <input type="email" id="email" placeholder="E-mail" />
-                <span class='msg-erro msg-email'> </span>
-            </div>
-            <div>
-                <label for="telephone">Telefone:</label><br>
-                <input type="tel" id="telephone" placeholder="Telefone" />
-                <span class='msg-erro msg-telephone'> </span>
-            </div>
-            <div>
-                <label for="birthofday">Data de Nascimento:</label><br>
-                <input type="date" id="birthofday" />
-                <span class='msg-erro msg-birthofday'> </span>
-            </div>
-            <div>
-                <label for="message">Mensagem:</label><br>
-                <textarea id="message"></textarea>
-                <span class='msg-erro msg-message'> </span>
-            </div>
-            <div>
-                <input type="submit" value="Submit" />
-            </div>
-        </form>
-    </div>
+  <div>
+    <form
+      action="success.html"
+      method="post"
+      id="form"
+      onsubmit="return validationForm()">
+      <h3 class="title">Dados Pessoais</h3>
+      <div>
+        <label for="name">Nome:</label><br>
+        <input type="text" id="name" placeholder="Nome" />
+        <span class='msg-erro msg-name'> </span>
+      </div>
+      <div>
+        <label for="lastname">Sobrenome:</label><br>
+        <input type="text" id="lastname" placeholder="Sobrenome" />
+        <span class="msg-erro msg-lastname"> </span>
+      </div>
+      <div>
+        <label for="birthofday">Data de Nascimento:</label><br>
+        <input type="date" id="birthofday" />
+        <span class='msg-erro msg-birthofday'> </span>
+      </div>
+      <div>
+        <p>Sexo:</p>
+        <input type="radio" name="gender" id="female" value="0" />
+        <label for="female">Feminino</label>
+        <input type="radio" name="gender" id="male" value="1" />
+        <label for=" male">Masculino</label>
+        <input type="radio" name="gender" id="other" value="2" />
+        <label for=" other">Outro</label>
+        <span class='msg-erro msg-gender'> </span>
+      </div>
+      <div>
+        <label for="telephone">Telefone:</label><br>
+        <input type="tel" id="telephone" placeholder="Ex.: 000-00000-0000" />
+        <span class='msg-erro msg-telephone'> </span>
+      </div>
+      <div>
+        <label for="cep">CEP:</label><br>
+        <input type="code" id="cep" placeholder="Ex.: 00000-000" />
+        <span class='msg-erro msg-cep'> </span>
+      </div>
+      <div>
+        <label for="address">Endereço:</label><br>
+        <input type="text" id="address" placeholder="Ex.: Rua, nº, Bairro, Cidade, UF" />
+        <span class='msg-erro msg-address'> </span>
+      </div>
+      <div>
+        <label for="cpf">CPF:</label><br>
+        <input type="number" id="cpd" placeholder="Ex.: 000.000.000-00" />
+        <span class='msg-erro msg-address'> </span>
+      </div>
+      <div>
+        <label for="email">E-mail:</label><br>
+        <input type="email" id="email" placeholder="Ex.: email@email.com" />
+        <span class='msg-erro msg-email'> </span>
+      </div>
+      <div>
+        <label for="username">Nome de usuário:</label><br>
+        <input type="text" id="username" placeholder="Nome de usuário" />
+        <span class='msg-erro msg-username'> </span>
+      </div>
+      <div>
+        <label for="password">Senha:</label><br>
+        <input type="password" id="password" />
+        <span class='msg-erro msg-password'> </span>
+      </div>
+      <div>
+        <label for="repassword">Confirmar Senha:</label><br>
+        <input type="password" id="repassword" />
+        <span class='msg-erro msg-repassword'> </span>
+      </div>
+      <div>
+        <label for="message">Mensagem:</label><br>
+        <textarea id="message"></textarea>
+        <span class='msg-erro msg-message'> </span>
+      </div>
+      <div>
+        <input type="submit" value="Submit" />
+      </div>
+    </form>
+  </div>
 
-    <script>
-        // var contErro = 0;
-
-        function validationName (name) {
-            name_box = document.querySelector('.msg-name');
-            if (name.value == "") {
-                name_box.innerHTML = "Favor preencha o nome";
-                name_box.style.display = 'block';
-                // contErro += 1;
-            } else if (name.value.length < 3) {
-                name_box.innerHTML = "Favor preencha o nome com no mínimo 3 caracteres";
-                name_box.style.display = 'block';
-                // contErro += 1;
-            } else {
-                name_box.style.display = 'none';
-            }
-        }
-
-        function validationLastName (lastName) {
-            lastname_box = document.querySelector('.msg-lastname');
-            if (lastName.value == "") {
-                lastname_box.innerHTML = "Favor preencha o sobrenome";
-                lastname_box.style.display = 'block';
-                // contErro += 1;
-            } else if (lastName.value.length < 5) {
-                lastname_box.innerHTML = "Favor preencha o sobrenome com no mínimo 5 caracteres";
-                lastname_box.style.display = 'block';
-                // contErro += 1;
-            } else {
-                lastname_box.style.display = 'none';
-            }
-        }
-
-        function validationGender (gender) {
-            gender_box = document.querySelector('.msg-gender');
-            if (gender[0].checked == false && gender[1].checked == false && gender[2].checked == false ) {
-                gender_box.innerHTML = "Favor selecionar o sexo";
-                gender_box.style.display = 'block';
-                // contErro += 1;
-            }else {
-                gender_box.style.display = 'none';
-            }
-        }
-
-        function validationEmail (email) {
-            var exp_email = /^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/i;
-
-            email_box = document.querySelector('.msg-email');
-            if (email.value == ""){
-                email_box.innerHTML = "Favor preencher o e-mail";
-                email_box.style.display = 'block';
-                // contErro += 1;
-
-            } else if(exp_email.test(email.value)){
-                email_box.style.display = 'none';
-                
-            } else {
-                email_box.innerHTML = "Favor preencher com e-mail valido";
-                email_box.style.display = 'block';
-                // contErro += 1;
-            }
-        }
-
-        function validationTelephone (telephone) {
-            var exp_telephone = /^[0-9]{2}?[0-9]{4,5}[0-9]{4}|[0-9]{4,5}-[0-9]{4}$/;
-
-            telephone_box = document.querySelector('.msg-tel');
-            if (telephone.value == ""){
-                telephone_box.innerHTML = "Favor preencher o campo telefone";
-                telephone_box.style.display = 'block';
-                // contErro += 1;
-
-            } else if(exp_tel.test(telephone.value)){
-                telephone_box.style.display = 'none';
-                
-            } else {
-                telephone_box.innerHTML = "Favor preencher com e-mail valido";
-                telephone_box.style.display = 'block';
-                // contErro += 1;
-            }
-        }
-
-        function validationBirthOfDay (birthOfDay) {
-            
-        }
-
-        function validationMessage (message) {
-
-        }
-
-        function validationAddress (address) {
-
-        }
-
-        function validationCpf (cpf) {
-
-        }
-
-        function validationCep (cep) {
-
-        }
-
-        function validationUserName (userName) {
-
-        }
-
-        function validationPassword (password, rePassword) {
-
-        }
-
-        function validationForm() {
-
-            validationName(document.getElementById('name'));
-            validationLastName(document.getElementById('lastname'));
-            validationGender(document.getElementsByName('gender'));
-            validationEmail(document.getElementById('email'));
-            // validationTelephone(document.getElementById('telephone'));
-            validationBirthOfDay(document.getElementById('birthofday'));
-            // validationMessage(document.getElementById('message'));
-            // validationAddress(document.getElementById('address'));
-            // validationCpf(document.getElementById('cpf'));
-            // validationCep(document.getElementById('cep'));
-            // validationUserName(document.getElementById('username'));
-            // validationPassword(document.getElementById('password'), document.getElementById('repassword'))
-
-            return false;
-        }
-    </script>
+  <script src="./script.js"></script>
 
 </body>
 
