@@ -12,8 +12,8 @@
 <body>
   <div>
     <form
-      action="success.html"
-      method="post"
+      action="./success.html"
+      method="get"
       id="form"
       onsubmit="return validationForm()">
       <h3 class="title">Dados Pessoais</h3>
@@ -59,8 +59,8 @@
       </div>
       <div>
         <label for="cpf">CPF:</label><br>
-        <input type="number" id="cpd" placeholder="Ex.: 000.000.000-00" />
-        <span class='msg-erro msg-address'> </span>
+        <input type="code" id="cpf" placeholder="Ex.: 000.000.000-00" />
+        <span class='msg-erro msg-cpf'> </span>
       </div>
       <div>
         <label for="email">E-mail:</label><br>
