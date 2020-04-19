@@ -6,6 +6,7 @@
   <meta name="author" content="Thalles Sobral">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="./style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <title>Validando dados</title>
 </head>
 
@@ -18,22 +19,34 @@
       onsubmit="return validationForm(this)">
       <h3 class="title">Dados Pessoais</h3>
       <div>
-        <label for="name">Nome:</label><br>
+        <div class="question-label">
+          <label for="name">Nome:</label>
+          <div><i class="fa fa-question"></i></div>
+        </div>
         <input type="text" id="name" placeholder="Nome" />
         <span class='msg-erro msg-name'> </span>
       </div>
       <div>
-        <label for="lastname">Sobrenome:</label><br>
+        <div class="question-label">
+          <label for="lastname">Sobrenome:</label>
+          <div><i class="fa fa-question"></i></div>
+        </div>
         <input type="text" id="lastname" placeholder="Sobrenome" />
         <span class="msg-erro msg-lastname"> </span>
       </div>
       <div>
-        <label for="birthofday">Data de Nascimento:</label><br>
+        <div class="question-label">
+          <label for="birthofday">Data de Nascimento:</label>
+          <div><i class="fa fa-question"></i></div>
+        </div>
         <input type="date" id="birthofday" />
         <span class='msg-erro msg-birthofday'> </span>
       </div>
       <div>
-        <p>Sexo:</p>
+        <div class="question-label">
+          <p>Sexo:</p>
+          <div><i class="fa fa-question"></i></div>
+        </div>
         <input type="radio" name="gender" id="female" value="0" />
         <label for="female">Feminino</label>
         <input type="radio" name="gender" id="male" value="1" />
@@ -43,37 +56,58 @@
         <span class='msg-erro msg-gender'> </span>
       </div>
       <div>
-        <label for="telephone">Telefone:</label><br>
+        <div class="question-label">
+          <label for="telephone">Telefone:</label>
+          <div><i class="fa fa-question"></i></div>
+        </div>
         <input type="tel" id="telephone" placeholder="Ex.: 000-00000-0000" />
         <span class='msg-erro msg-telephone'> </span>
       </div>
       <div>
-        <label for="cep">CEP:</label><br>
+        <div class="question-label">
+          <label for="cep">CEP:</label>
+          <div><i class="fa fa-question"></i></div>
+        </div>
         <input type="code" id="cep" placeholder="Ex.: 00000-000" />
         <span class='msg-erro msg-cep'> </span>
       </div>
       <div>
-        <label for="address">Endereço:</label><br>
+        <div class="question-label">
+          <label for="address">Endereço:</label>
+          <div><i class="fa fa-question"></i></div>
+        </div>
         <input type="text" id="address" placeholder="Ex.: Rua, nº, Bairro, Cidade, UF" />
         <span class='msg-erro msg-address'> </span>
       </div>
       <div>
-        <label for="cpf">CPF:</label><br>
+        <div class="question-label">
+          <label for="cpf">CPF:</label>
+          <div><i class="fa fa-question"></i></div>
+        </div>
         <input type="code" id="cpf" placeholder="Ex.: 000.000.000-00" />
         <span class='msg-erro msg-cpf'> </span>
       </div>
       <div>
-        <label for="email">E-mail:</label><br>
+        <div class="question-label">
+          <label for="email">E-mail:</label>
+          <div><i class="fa fa-question"></i></div>
+        </div>
         <input type="email" id="email" placeholder="Ex.: email@email.com" />
         <span class='msg-erro msg-email'> </span>
       </div>
       <div>
-        <label for="username">Nome de usuário:</label><br>
+        <div class="question-label">
+          <label for="username">Nome de usuário:</label>
+          <div><i class="fa fa-question"></i></div>
+        </div>
         <input type="text" id="username" placeholder="Nome de usuário" />
         <span class='msg-erro msg-username'> </span>
       </div>
       <div>
-        <label for="password">Senha:</label><br>
+        <div class="question-label">
+          <label for="password">Senha:</label>
+          <div><i class="fa fa-question"></i></div>
+        </div>
         <input type="password" id="password" />
         <span class='msg-erro msg-password'> </span>
       </div>
@@ -83,7 +117,10 @@
         <span class='msg-erro msg-repassword'> </span>
       </div>
       <div>
-        <label for="message">Mensagem:</label><br>
+        <div class="question-label">
+          <label for="message">Mensagem:</label>
+          <div><i class="fa fa-question"></i></div>
+        </div>
         <textarea id="message"></textarea>
         <span class='msg-erro msg-message'> </span>
       </div>

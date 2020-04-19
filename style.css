@@ -49,3 +49,9 @@ input[type=submit] {
 .msg-erro {
   color: red;
 }
+
+.question-label {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
