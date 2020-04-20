@@ -231,3 +231,9 @@ function validationForm() {
 		return true;
 	}
 }
+
+function showContent (id) {
+	var element = document.getElementById(id)
+	if (element.style.display == 'block') element.style.display = 'none'
+	else element.style.display = 'block'
+}
