@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="author" content="Thalles Sobral">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <title>Validando dados</title>
+</head>
+
+<body>
+  <div>
+    <form
+      action="/success.html"
+      method="GET"
+      id="form"
+      onsubmit="return validationForm(this)">
+      <div class="container-title">
+        <h3 id="title"><span>Formulário</span> de Cadastro</h3>
+        <div><i class="fa fa-user-circle icon-title"></i></div>
+      </div>
+      <hr>
+      <div>
+        <div class="aid-label">
+          <label for="name">Nome:</label>
+          <div onclick="showContent('regex-name')"><i class="fa fa-question" title="regex"></i></div>
+        </div>
+        <input type="text" id="name" placeholder="Nome" />
+        <span class='msg-erro msg-name'> </span>
+        <div id="regex-name" class="regex-text">
+          <p>
+            regex: /[a-z]+/i;
+          </p>
+        </div>
+      </div>
+      <div>
+        <div class="aid-label">
+          <label for="lastname">Sobrenome:</label>
+          <div onclick="showContent('regex-lastname')"><i class="fa fa-question" title="regex"></i></div>
+        </div>
+        <input type="text" id="lastname" placeholder="Sobrenome" />
+        <span class="msg-erro msg-lastname"> </span>
+        <div id="regex-lastname" class="regex-text">
+          <p>
+            regex: /[a-z]+/i;
+          </p>
+        </div>
+      </div>
+      <div>
+        <div class="aid-label">
+          <label for="birthofday">Data de Nascimento:</label>
+          <div onclick="showContent('regex-birthofday')"><i class="fa fa-question" title="regex"></i></div>
+        </div>
+        <input type="date" id="birthofday" />
+        <span class='msg-erro msg-birthofday'> </span>
+        <div id="regex-birthofday" class="regex-text">
+          <p>
+            regex: /^(19[6-9][0-9]|20[0-2][0-9])(-|\/)(0[1-9]|1[0-2])(-|\/)(0[1-9]|[1-2][0-9]|3[0-1])/;	
+          </p>
+        </div>
+      </div>
+      <div>
+        <div class="aid-label">
+          <p>Sexo:</p>
+          <div onclick="showContent('regex-gender')"><i class="fa fa-question" title="regex"></i></div>
+        </div>
+        <input type="radio" name="gender" id="female" value="0" />
+        <label for="female">Feminino</label>
+        <input type="radio" name="gender" id="male" value="1" />
+        <label for=" male">Masculino</label>
+        <input type="radio" name="gender" id="other" value="2" />
+        <label for=" other">Outro</label>
+        <span class='msg-erro msg-gender'> </span>
+        <div id="regex-gender" class="regex-text">
+          <p>
+            regex: empty
+          </p>
+        </div>
+      </div>
+      <div>
+        <div class="aid-label">
+          <label for="telephone">Telefone:</label>
+          <div onclick="showContent('regex-telephone')"><i class="fa fa-question" title="regex"></i></div>
+        </div>
+        <input type="tel" id="telephone" placeholder="Ex.: 000-00000-0000" />
+        <span class='msg-erro msg-telephone'> </span>
+        <div id="regex-telephone" class="regex-text">
+          <p>
+            regex: /^\(?([0-9]{3})\)?[-. ]?([0-9]{5})[-. ]?([0-9]{4})$/;
+          </p>
+        </div>
+      </div>
+      <div>
+        <div class="aid-label">
+          <label for="cep">CEP:</label>
+          <div onclick="showContent('regex-cep')"><i class="fa fa-question" title="regex"></i></div>
+        </div>
+        <input type="code" id="cep" placeholder="Ex.: 00000-000" />
+        <span class='msg-erro msg-cep'> </span>
+        <div id="regex-cep" class="regex-text">
+          <p>
+            regex: /^(\d{5}|\d{2}\.\d{3})-\d{3}$/;
+          </p>
+        </div>
+      </div>
+      <div>
+        <div class="aid-label">
+          <label for="address">Endereço:</label>
+          <div onclick="showContent('regex-address')"><i class="fa fa-question" title="regex"></i></div>
+        </div>
+        <input type="text" id="address" placeholder="Ex.: Rua, nº, Bairro, Cidade, UF" />
+        <span class='msg-erro msg-address'> </span>
+        <div id="regex-address" class="regex-text">
+          <p>
+            address: /^([A-Z|a-z])([A-Z|a-z|\s])+,\s?\d+,([A-Z|a-z|\s])+,([A-Z|a-z|\s])+,\s*[A-Z]+$/;
+          </p>
+        </div>
+      </div>
+      <div>
+        <div class="aid-label">
+          <label for="cpf">CPF:</label>
+          <div onclick="showContent('regex-cpf')"><i class="fa fa-question" title="regex"></i></div>
+        </div>
+        <input type="code" id="cpf" placeholder="Ex.: 000.000.000-00" />
+        <span class='msg-erro msg-cpf'> </span>
+        <div id="regex-cpf" class="regex-text">
+          <p>
+            regex: /^\d{3}\.\d{3}\.\d{3}-\d{2}$/;
+          </p>
+        </div>
+      </div>
+      <div>
+        <div class="aid-label">
+          <label for="email">E-mail:</label>
+          <div onclick="showContent('regex-email')"><i class="fa fa-question" title="regex"></i></div>
+        </div>
+        <input type="email" id="email" placeholder="Ex.: email@email.com" />
+        <span class='msg-erro msg-email'> </span>
+        <div id="regex-email" class="regex-text">
+          <p>
+            regex: /^[a-z.\d]+@[a-z.]+\.(com)$/; 
+          </p>
+        </div>
+      </div>
+      <div>
+        <div class="aid-label">
+          <label for="username">Nome de usuário:</label>
+          <div onclick="showContent('regex-username')"><i class="fa fa-question" title="regex"></i></div>
+        </div>
+        <input type="text" id="username" placeholder="Nome de usuário" />
+        <span class='msg-erro msg-username'> </span>
+        <div id="regex-username" class="regex-text">
+          <p>
+            regex: /^[a-zA-Z\d]+$/;
+          </p>
+        </div>
+      </div>
+      <div>
+        <div class="aid-label">
+          <label for="password">Senha:</label>
+          <div onclick="showContent('regex-password')"><i class="fa fa-question" title="regex"></i></div>
+        </div>
+        <input type="password" id="password" />
+        <span class='msg-erro msg-password'> </span>
+        <div id="regex-password" class="regex-text">
+          <p>
+            regex: empty
+          </p>
+        </div>
+      </div>
+      <div>
+        <label for="repassword">Confirmar Senha:</label><br>
+        <input type="password" id="repassword" />
+        <span class='msg-erro msg-repassword'> </span>
+      </div>
+      <div>
+        <div class="aid-label">
+          <label for="message">Mensagem:</label>
+          <div onclick="showContent('regex-message')"><i class="fa fa-question" title="regex"></i></div>
+        </div>
+        <textarea id="message"></textarea>
+        <span class='msg-erro msg-message'> </span>
+        <div id="regex-message" class="regex-text">
+          <p>
+            regex: empty
+          </p>
+        </div>
+      </div>
+      <div>
+        <input type="submit" value="Submit" />
+      </div>
+    </form>
+  </div>
+
+  <script src="./script.js"></script>
+
+</body>
+
+</html>

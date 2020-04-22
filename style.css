@@ -4,9 +4,25 @@ body {
   justify-content: center;
 }
 
-h3 {
+.container-title {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.container-title > div > .icon-title {
+  font-size: 40px;
+}
+
+#title {
   text-align: center;
 }
+
+#title > span {
+  color: #de7345;
+}
+
 
 div {
   border-radius: 5px;
@@ -37,7 +53,7 @@ input[type=radio] {
 }
 
 input[type=submit] {
-  background-color: black;
+  background-color: #de7345;
   color: white;
   padding: 14px 20px;
   margin: 8px 0;
@@ -47,7 +63,7 @@ input[type=submit] {
 }
 
 .msg-erro {
-  color: red;
+  color: #de4f45;
 }
 
 .aid-label {
@@ -69,12 +85,13 @@ input[type=submit] {
 }
 
 .aid-label > div > i:hover {
-  color: gray;
+  color: #de7345;
 }
 
 .regex-text {
-  padding: 0 18px;
+  padding: 0 10px;
   display: none;
   overflow: hidden;
+  color: #de7345;
   background-color: #f1f1f1;
 }
